@@ -3,20 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include "PixelInfo.h"
-
-#include <stdio.h>
 
 class bmp {
 public:
   std::basic_ofstream<char, std::char_traits<char> > file;
   char* fileName;
   int width, height;
-  PixelInfo* pixelInfo;
 
-  bmp(const char* fileName, const int width, const int height,PixelInfo *getPix) : file(std::ofstream(fileName, std::ios::binary | std::ios::out)), width(width), height(height) {
-    pixelInfo = getPix;
-
+  bmp(const char* fileName, const int width, const int height,std::vector<PixelInfo> &getPix) : file(std::ofstream(fileName, std::ios::binary | std::ios::out)), width(width), height(height) {
     const int bfOffBits = 54;
     const int biBitCount = 24;
     const int biCompression = 0;
@@ -47,9 +43,9 @@ public:
 
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width ; x++) {
-        BinaryWrite(pixelInfo[y*width+x].b, 1);
-        BinaryWrite(pixelInfo[y * width + x].g, 1);
-        BinaryWrite(pixelInfo[y * width + x].r, 1);
+        BinaryWrite(getPix.at(y * width + x).b, 1);
+        BinaryWrite(getPix.at(y * width + x).g, 1);
+        BinaryWrite(getPix.at(y * width + x).r, 1);
       }
       for (int x = 0; x < PaddingSize; x++) {
         BinaryWrite(0, 1);

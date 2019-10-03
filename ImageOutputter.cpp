@@ -1,10 +1,10 @@
+#include <vector>
 #include "bmp.h"
 
 int main() {
-  PixelInfo *pix;
-  pix = new PixelInfo[403 * 500];
+  std::vector<PixelInfo> pix;
   for (int i = 0; i < 403*500; i++) {
-    pix[i] = PixelInfo((int)(255.0*i/403/500),0,0);
+    pix.push_back(PixelInfo((int)(255.0*i/403/500),0,0));
   }
 
   bmp("test.bmp", 400, 500,pix);
