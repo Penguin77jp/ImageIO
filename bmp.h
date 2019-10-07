@@ -12,7 +12,7 @@ public:
   char* fileName;
   int width, height;
 
-  bmp(const char* fileName, const int width, const int height, std::vector<PixelInfo>& getPix);
+  bmp(const char* fileName, const int width, const int height, std::vector<PixelInfo> getPix);
 
 private:
   template<typename T>

@@ -1,6 +1,6 @@
 #include "bmp.h"
 
-bmp::bmp(const char* fileName, const int width, const int height, std::vector<PixelInfo> &getPix) : file(std::ofstream(fileName, std::ios::binary | std::ios::out)), width(width), height(height) {
+bmp::bmp(const char* fileName, const int width, const int height, std::vector<PixelInfo> getPix) : file(std::ofstream(fileName, std::ios::binary | std::ios::out)), width(width), height(height) {
 
   const int bfOffBits = 54;
   const int biBitCount = 24;
