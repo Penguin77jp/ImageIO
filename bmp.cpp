@@ -32,12 +32,20 @@ bmp::bmp(const char* fileName, const int width, const int height, std::vector<Pi
 
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      BinaryWrite(getPix.at(y * width + x).b, 1);
-      BinaryWrite(getPix.at(y * width + x).g, 1);
-      BinaryWrite(getPix.at(y * width + x).r, 1);
+      BinaryWrite(IntMax(getPix[(int)(y * width + x)].b), 1);
+      BinaryWrite(IntMax(getPix[(int)(y * width + x)].g), 1);
+      BinaryWrite(IntMax(getPix[(int)(y * width + x)].r), 1);
     }
     for (int x = 0; x < PaddingSize; x++) {
       BinaryWrite(0, 1);
     }
+  }
+}
+
+int IntMax(const double getInt) {
+  if (getInt > 1.0) {
+    return 255;
+  } else {
+    return (int)(getInt*255);
   }
 }

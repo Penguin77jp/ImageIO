@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "PixelInfo.h"
 
 class bmp {
@@ -20,3 +21,5 @@ private:
     file.write(reinterpret_cast<char*>(&getData), getSize);
   }
 };
+
+int IntMax(const double);
