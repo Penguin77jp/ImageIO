@@ -5,7 +5,7 @@
 int main() {
   std::vector<PixelInfo> pix(403*500);
   for (int i = 0; i < 403*500; i++) {
-    pix[i] = PixelInfo(1.0*i/403/500,0,0);
+    pix[i] = PixelInfo((unsigned char)(255.0 * i / 403 / 500),0,0);
   }
 
   bmp("test.bmp", 400, 500,pix);

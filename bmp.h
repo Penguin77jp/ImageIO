@@ -22,4 +22,4 @@ private:
   }
 };
 
-int IntMax(const double);
+int ValMax(const unsigned char);
